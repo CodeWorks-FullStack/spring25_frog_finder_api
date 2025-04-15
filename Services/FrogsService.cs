@@ -1,3 +1,4 @@
+
 namespace frog_finder_api.Services;
 // NOTE service is now responsible for business logic and talking to our repository layer
 public class FrogsService
@@ -13,6 +14,12 @@ public class FrogsService
   {
     List<Frog> frogs = _repository.GetAllFrogs();
     return frogs;
+  }
+
+  public Frog GetFrogById(int frogId)
+  {
+    Frog frog = _repository.GetFrogById(frogId);
+    return frog;
   }
 }
 
