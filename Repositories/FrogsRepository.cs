@@ -29,7 +29,7 @@ public class FrogsRepository
     return frog;
   }
 
-  internal void DeleteFrog(int frogId)
+  public void DeleteFrog(int frogId)
   {
     string sql = "DELETE FROM frogs WHERE id = @frogId;";
     //                                      { frogId: 2 }
@@ -49,5 +49,18 @@ public class FrogsRepository
     {
       throw new Exception($"{rowsAffected} frogs have been deleted, and that is bad");
     }
+  }
+
+  public Frog CreateFrog(Frog frogData)
+  {
+    string sql = @"
+    INSERT INTO 
+    frogs (name, is_single, img_url, age)
+    VALUES(@Name, @IsSingle, @ImgUrl, @Age);
+    
+    SELECT * FROM frogs WHERE id = LAST_INSERT_ID();";
+
+    Frog frog = _db.Query<Frog>(sql, frogData).SingleOrDefault();
+    return frog;
   }
 }
