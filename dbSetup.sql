@@ -27,3 +27,5 @@ VALUES('ziggy', false, 'https://images.unsplash.com/photo-1519874894605-54cfd04f
 SELECT * FROM frogs;
 
 SELECT * FROM frogs WHERE id = 2;
+
+DELETE FROM frogs WHERE id = 2;

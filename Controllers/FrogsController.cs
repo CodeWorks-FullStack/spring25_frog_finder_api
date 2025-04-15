@@ -27,15 +27,15 @@ public class FrogsController : ControllerBase // extends BaseController
     try
     {
       List<Frog> frogs = _frogsService.GetAllFrogs();
-      return Ok(frogs);
+      return Ok(frogs); // 200
     }
     catch (Exception error)
     {
-      return BadRequest(error.Message);
+      return BadRequest(error.Message); // 400
     }
   }
 
-  [HttpGet("{frogId}")]
+  [HttpGet("{frogId}")] // .get('/:frogId', this.GetFrogById)
   public ActionResult<Frog> GetFrogById(int frogId) // request.params.frogId
   {
     try
@@ -46,6 +46,20 @@ public class FrogsController : ControllerBase // extends BaseController
     catch (Exception error)
     {
       return BadRequest(error.Message);
+    }
+  }
+
+  [HttpDelete("{frogId}")]
+  public ActionResult<string> DeleteFrog(int frogId)
+  {
+    try
+    {
+      _frogsService.DeleteFrog(frogId);
+      return Ok("Frog was deleted!");
+    }
+    catch (Exception error)
+    {
+      return BadRequest(error.Message); // next(error)
     }
   }
 }

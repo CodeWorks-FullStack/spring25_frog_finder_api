@@ -1,4 +1,5 @@
 
+
 namespace frog_finder_api.Repositories;
 // NOTE 
 public class FrogsRepository
@@ -26,5 +27,27 @@ public class FrogsRepository
     //                                   { frogId: 2 }
     Frog frog = _db.Query<Frog>(sql, new { frogId = frogId }).SingleOrDefault();
     return frog;
+  }
+
+  internal void DeleteFrog(int frogId)
+  {
+    string sql = "DELETE FROM frogs WHERE id = @frogId;";
+    //                                      { frogId: 2 }
+    int rowsAffected = _db.Execute(sql, new { frogId });
+
+    if (rowsAffected == 1)
+    {
+      return;
+    }
+
+    if (rowsAffected == 0)
+    {
+      throw new Exception($"Invalid id: {frogId}");
+    }
+
+    if (rowsAffected > 1)
+    {
+      throw new Exception($"{rowsAffected} frogs have been deleted, and that is bad");
+    }
   }
 }

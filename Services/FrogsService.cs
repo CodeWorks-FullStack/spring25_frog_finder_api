@@ -27,5 +27,10 @@ public class FrogsService
 
     return frog;
   }
+
+  public void DeleteFrog(int frogId)
+  {
+    _repository.DeleteFrog(frogId);
+  }
 }
 
