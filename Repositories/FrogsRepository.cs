@@ -21,7 +21,8 @@ public class FrogsRepository
 
   public Frog GetFrogById(int frogId)
   {
-    // string sql = $"SELECT * FROM frogs WHERE id = {frogId};"; 💉opens us up for sql injection attacks
+    // 💉opens us up for sql injection attacks
+    // string sql = $"SELECT * FROM frogs WHERE id = {frogId};"; 
 
     string sql = "SELECT * FROM frogs WHERE id = @frogId;";
     //                                   { frogId: 2 }
