@@ -53,6 +53,7 @@ public class FrogsRepository
 
   public Frog CreateFrog(Frog frogData)
   {
+    // NOTE @ allows us to make a multi line string
     string sql = @"
     INSERT INTO 
     frogs (name, is_single, img_url, age)
