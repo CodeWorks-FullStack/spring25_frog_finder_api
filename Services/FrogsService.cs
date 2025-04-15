@@ -19,6 +19,12 @@ public class FrogsService
   public Frog GetFrogById(int frogId)
   {
     Frog frog = _repository.GetFrogById(frogId);
+
+    if (frog == null)
+    {
+      throw new Exception($"Invalid frog id: {frogId}");
+    }
+
     return frog;
   }
 }
