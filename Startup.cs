@@ -37,7 +37,7 @@ public class Startup
     services.AddScoped<AccountsRepository>();
     services.AddScoped<AccountService>();
 
-    // NOTE this method can now new up a FrogsService and inject wherever it is needed
+    // NOTE this method can now new up a FrogsService and inject wherever it is needed as a dependency 💉
     services.AddScoped<FrogsService>();
     services.AddScoped<FrogsRepository>();
   }
