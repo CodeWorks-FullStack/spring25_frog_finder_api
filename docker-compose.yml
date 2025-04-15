@@ -1,0 +1,9 @@
+version: '3'
+services:
+  app:
+    image: your-dockerhub-username/frog_finder_api:latest
+    restart: unless-stopped
+    env_file:
+      - frog_finder_api-env
+    ports:
+      - "7045:80"
