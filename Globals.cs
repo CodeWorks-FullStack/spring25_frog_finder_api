@@ -1,3 +1,4 @@
+// NOTE all of these global statements make it so we don't have to add the 'using' statement for theses namespaces in any of our files in this application
 
 global using System;
 global using System.Data;
